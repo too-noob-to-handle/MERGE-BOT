@@ -81,7 +81,7 @@ async def MergeSub(filePath: str, subPath: str, user_id):
             subTrack += 1
     input_files += f"-i '{filePath}' -i '{subPath}' "
     maps += f"-map 1:s "
-    metadata += f"-metadata:s:s:{subTrack} title='Track {subTrack+1} - @BangladeshHoarding' year=2022 comment="t.me/BangladeshHoarding""
+    metadata += f"-metadata:s:s:{subTrack} title='Track {subTrack+1} - @BangladeshHoarding' year=2022 comment='t.me/BangladeshHoarding'"
     subTrack += 1
     print("Sub muxing")
     subprocess.call(
@@ -121,7 +121,7 @@ def MergeSubNew(filePath: str, subPath: str, user_id, file_list):
     for j in range(1, (len(file_list))):
         maps += f"-map {j}:s "
         metadata += (
-            f"-metadata:s:s:{subTrack} title='Track {subTrack+1} - @BangladeshHoarding' year=2022 comment="t.me/BangladeshHoarding""
+            f"-metadata:s:s:{subTrack} title='Track {subTrack+1} - @BangladeshHoarding' year=2022 comment='t.me/BangladeshHoarding'"
         )
         subTrack += 1
     print("Sub muxing")
@@ -149,7 +149,7 @@ def MergeAudio(videoPath:str,files_list:list,user_id):
         maps += f"-map {j}:a "
     LOGGER.info("Merging files now")
     subprocess.call(
-        f"ffmpeg -hide_banner {inputfiles}-map 0:v:0 -map 0:a {maps}-map 0:s:? -c:v copy -c:a copy -c:s copy -metadata title="@BangladeshHoarding" -metadata year=2022 -metadata comment="t.me/BangladeshHoarding" './downloads/{str(user_id)}/[@BangladeshHoarding]_export.mkv'",
+        f"ffmpeg -hide_banner {inputfiles}-map 0:v:0 -map 0:a {maps}-map 0:s:? -c:v copy -c:a copy -c:s copy -metadata title='@BangladeshHoarding' -metadata year=2022 -metadata comment='t.me/BangladeshHoarding' './downloads/{str(user_id)}/[@BangladeshHoarding]_export.mkv'",
         shell=True
     )
     return f"./downloads/{str(user_id)}/[@yashoswalyo]_export.mkv"
