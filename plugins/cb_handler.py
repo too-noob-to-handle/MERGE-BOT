@@ -55,7 +55,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
             return
         UPLOAD_TO_DRIVE.update({f"{cb.from_user.id}": True})
         await cb.message.edit(
-            text="Okay I'll upload to drive\nDo you want to rename? Default file name is **[@yashoswalyo]_merged.mkv**",
+            text="Okay I'll upload to drive\nDo you want to rename? Default file name is **[@BangladeshHoarding]_merged.mkv**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -87,7 +87,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "document":
         UPLOAD_AS_DOC.update({f"{cb.from_user.id}": True})
         await cb.message.edit(
-            text="Do you want to rename? Default file name is **[@yashoswalyo]_merged.mkv**",
+            text="Do you want to rename? Default file name is **[@BangladeshHoarding]_merged.mkv**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -103,7 +103,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "video":
         UPLOAD_AS_DOC.update({f"{cb.from_user.id}": False})
         await cb.message.edit(
-            text="Do you want to rename? Default file name is **[@yashoswalyo]_merged.mkv**",
+            text="Do you want to rename? Default file name is **[@BangladeshHoarding]_merged.mkv**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -132,7 +132,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data.startswith("rename_"):
         if "YES" in cb.data:
             await cb.message.edit(
-                "Current filename: **[@yashoswalyo]_merged.mkv**\n\nSend me new file name without extension: You have 1 minute"
+                "Current filename: **[@BangladeshHoarding]_merged.mkv**\n\nSend me new file name without extension: You have 1 minute"
             )
             res: Message = await c.listen(
                 cb.message.chat.id, filters=filters.text, timeout=60
@@ -153,19 +153,19 @@ async def callback_handler(c: Client, cb: CallbackQuery):
                 await mergeNow(
                     c,
                     cb,
-                    new_file_name=f"./downloads/{str(cb.from_user.id)}/[@yashoswalyo]_merged.mkv",
+                    new_file_name=f"./downloads/{str(cb.from_user.id)}/[@BangladeshHoarding]_merged.mkv",
                 )
             elif MERGE_MODE[cb.from_user.id]==2:
                 await mergeAudio(
                     c,
                     cb,
-                    new_file_name=f"./downloads/{str(cb.from_user.id)}/[@yashoswalyo]_merged.mkv",
+                    new_file_name=f"./downloads/{str(cb.from_user.id)}/[@BangladeshHoarding]_merged.mkv",
                 )
             elif MERGE_MODE[cb.from_user.id]==3:
                 await mergeSub(
                     c,
                     cb,
-                    new_file_name=f"./downloads/{str(cb.from_user.id)}/[@yashoswalyo]_merged.mkv",
+                    new_file_name=f"./downloads/{str(cb.from_user.id)}/[@BangladeshHoarding]_merged.mkv",
                 )
 
     elif cb.data == "cancel":
